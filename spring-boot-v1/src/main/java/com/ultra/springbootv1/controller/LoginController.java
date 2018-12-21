@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @Date: 2018/12/13
  */
 @Controller
+@RequestMapping(value = "/login")
 public class LoginController {
 
     private final static Logger logger = LoggerFactory.getLogger(LoginController.class);

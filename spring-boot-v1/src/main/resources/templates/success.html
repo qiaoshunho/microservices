@@ -1,11 +1,77 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>success</title>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script>
+        function submitRight() {
+            $.ajax({
+                url: "/exception/getAjax",
+                type: "POST",
+                async: false,
+                datatype: "json",
+                success: function (data) {
+                    alert(JSON.stringify(data));
+                    if (data.code == 200 && data.msg == "OK") {
+                        alert("success");
+                    } else {
+                        alert("发生异常：" + data.msg);
+                    }
+                },
+                error: function (response, ajaxOptions, thrownError) {
+                    alert("error");
+                }
+            });
+        }
+
+        function submitRightObject() {
+            $.ajax({
+                url: "/exception/getAjaxObject",
+                type: "POST",
+                async: false,
+                datatype: "json",
+                success: function (data) {
+                    if (data.code == 200 && data.msg == "OK") {
+                        alert("success");
+                        alert(JSON.stringify(data.data));
+                        alert(data.data);
+                    } else {
+                        alert("发生异常：" + data.msg);
+                    }
+                },
+                error: function (response, ajaxOptions, thrownError) {
+                    alert("error");
+                }
+            });
+        }
+
+        function submitError() {
+            $.ajax({
+                url: "/exception/getAjaxerror",
+                type: "POST",
+                async: false,
+                success: function (data) {
+                    alert(data);
+                    if (data.code == 200 && data.msg == "OK") {
+                        alert("success");
+                    } else {
+                        alert("发生异常：" + data.msg);
+                    }
+                },
+                error: function (response, ajaxOptions, thrownError) {
+                    alert("error");
+                }
+            });
+        }
+    </script>
 </head>
 <body>
-    <span th:text="${username}"></span>登录成功,首页展示
+<span th:text="${username}"></span>登录成功,首页展示
+</br>
+<button onclick="submitRight()">ajax正确运行</button>
+<button onclick="submitRightObject()">ajax正确运行并返回一个对象</button>
+<button onclick="submitError()">ajax点击报错</button>
 </body>
 </html>
