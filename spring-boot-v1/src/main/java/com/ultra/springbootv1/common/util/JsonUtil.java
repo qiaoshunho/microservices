@@ -1,4 +1,4 @@
-package com.ultra.springbootv1.util;
+package com.ultra.springbootv1.common.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JavaType;
@@ -12,7 +12,7 @@ import java.util.List;
  * @author zhaoJP
  * @date 2018/12/21
  */
-public class JsonUtils {
+public class JsonUtil {
 
     // 定义jackson对象
     private static final ObjectMapper MAPPER = new ObjectMapper();
