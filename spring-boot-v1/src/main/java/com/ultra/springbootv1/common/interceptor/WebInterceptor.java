@@ -1,8 +1,8 @@
 package com.ultra.springbootv1.common.interceptor;
 
 import com.ultra.springbootv1.common.json.JSONResult;
+import com.ultra.springbootv1.common.util.JsonUtil;
 import com.ultra.springbootv1.model.UserInfo;
-import com.ultra.springbootv1.util.JsonUtils;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -66,7 +66,7 @@ public class WebInterceptor implements HandlerInterceptor {
             response.setCharacterEncoding("utf-8");
             response.setContentType("text/json");
             out = response.getOutputStream();
-            out.write(JsonUtils.objectToJson(result).getBytes("utf-8"));
+            out.write(JsonUtil.objectToJson(result).getBytes("utf-8"));
             out.flush();
         } finally{
             if(out!=null){
