@@ -66,6 +66,12 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public UserInfo getUserByNameByCache(String name) {
+        return userInfoRepository.findByUserNameByCache(name);
+    }
+
+
+    @Override
     @Transactional
     public UserInfo updateUser(UserInfo userInfo) {
         userInfo = userInfoRepository.getOne(1l);

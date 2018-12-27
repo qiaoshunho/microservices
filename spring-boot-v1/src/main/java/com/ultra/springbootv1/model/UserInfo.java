@@ -1,6 +1,7 @@
 package com.ultra.springbootv1.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * @description: user实体类
@@ -9,7 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "boot_user", schema = "duty")
-public class UserInfo {
+public class UserInfo implements Serializable{
 
 /*  JPA提供的四种标准用法为TABLE,SEQUENCE,IDENTITY,AUTO.
     TABLE：使用一个特定的数据库表格来保存主键。

@@ -1,6 +1,7 @@
 package com.ultra.springbootv1.repository;
 
 import com.ultra.springbootv1.model.UserInfo;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -26,6 +27,10 @@ public interface UserInfoRepository extends JpaRepository<UserInfo, Long>, JpaSp
      */
     @Query("select t from UserInfo t where t.name = :name")
     UserInfo findByUserName(@Param("name") String name);
+
+    @Cacheable(value = "mycache")
+    @Query("select t from UserInfo t where t.name = :name")
+    UserInfo findByUserNameByCache(@Param("name") String name);
 
     @Query(value = "select t1.name, t1.jobnumber, t2.rolename\n" +
             "from DUTY.BOOT_USER t1\n" +

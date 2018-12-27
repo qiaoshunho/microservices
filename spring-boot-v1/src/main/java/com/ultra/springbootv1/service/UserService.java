@@ -34,6 +34,13 @@ public interface UserService {
     UserInfo getUserByName(String name);
 
     /**
+     * 根据用户名查找-缓存
+     * @param name
+     * @return
+     */
+    UserInfo getUserByNameByCache(String name);
+
+    /**
      * 修改用户
      * @param userInfo
      * @return

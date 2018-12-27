@@ -24,8 +24,10 @@ public class GlobalExceptionHandler {
         e.printStackTrace();
 
         if (isAjax(request)) {//ajax请求方式的异常
+
             return JSONResult.errorException(e.getMessage());
         } else {//web请求方式的异常
+
             ModelAndView mav = new ModelAndView();
             mav.addObject("exception", e);
             mav.addObject("url", request.getRequestURL());
