@@ -10,3 +10,5 @@ Spring Boot 和 Spring Cloud系列
   (3)实现了全局异常的处理以及统一格式的封装Json
   
   (4)2018-12-24 新增拦截器并实现登录校验功能
+  
+  (5)2018-12-29 封装分页工具类,具体实现参考UserController-->getUsers方法
