@@ -1,5 +1,6 @@
 package com.ultra.springbootv1.service.impl;
 
+import com.ultra.springbootv1.common.page.PageTool;
 import com.ultra.springbootv1.model.ResultMap;
 import com.ultra.springbootv1.model.UserInfo;
 import com.ultra.springbootv1.repository.UserInfoRepository;
@@ -141,12 +142,25 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<Object[]> dynamicSQL2() {
+    public PageTool dynamicSQL2(Integer page, Integer pageSize) {
+        String sqlCount = " select count(*) from DUTY.BOOT_USER t1" +
+                " left join DUTY.BOOT_ROLE t2 on t1.id = t2.userid " +
+                " where 1=1 ";
+        List list = entityManager.createNativeQuery(sqlCount).getResultList();
+        if (list == null || list.size() == 0) return null;
+
         String sql = " select t1.name, t1.jobnumber, t2.rolename from DUTY.BOOT_USER t1" +
                 " left join DUTY.BOOT_ROLE t2 on t1.id = t2.userid " +
                 " where 1=1 ";
-        Query query = entityManager.createNativeQuery(sql).setFirstResult(1).setMaxResults(3);
-        List<Object[]> resultList = query.getResultList();
-        return resultList;
+
+        PageTool pageTool = new PageTool(Integer.valueOf(list.get(0).toString()));
+        if (!StringUtils.isEmpty(page)) {
+            pageTool.setPage(page);
+        }
+        Query query = entityManager.createNativeQuery(sql)
+                .setFirstResult(pageTool.getFirstResult())
+                .setMaxResults(pageTool.getMaxResult());
+        pageTool.setPageData(query.getResultList());
+        return pageTool;
     }
 }

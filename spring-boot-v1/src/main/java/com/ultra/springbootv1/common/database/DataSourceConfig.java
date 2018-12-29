@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import javax.sql.DataSource;
 
 /**
- * @description:
+ * @description: 多数据源配置中心
  * @Author: ZhaoJP
  * @Date: 2018/12/13
  */

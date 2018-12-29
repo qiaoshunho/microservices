@@ -1,5 +1,6 @@
 package com.ultra.springbootv1.service;
 
+import com.ultra.springbootv1.common.page.PageTool;
 import com.ultra.springbootv1.model.ResultMap;
 import com.ultra.springbootv1.model.UserInfo;
 import org.springframework.data.domain.Page;
@@ -81,5 +82,5 @@ public interface UserService {
      * 方式二 动态拼接sql
      * @return
      */
-    List<Object[]> dynamicSQL2();
+    PageTool dynamicSQL2(Integer page, Integer pageSize);
 }

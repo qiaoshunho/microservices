@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 
 */
 /**
- * @desc: 以MySQL作为辅助查询
+ * @desc: 以MySQL辅助查询
  * @Author: ZhaoJP
  * @Date: 2018/12/14
  *//*

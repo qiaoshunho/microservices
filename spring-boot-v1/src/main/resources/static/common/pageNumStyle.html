@@ -1,0 +1,36 @@
+<div class="nav">
+    <ul class="page_nav" style="width:500px">
+        <li>
+				<span>
+					<a href="javascript:void(0)"  onclick="JavaScript:goPage('${page.previousPage}');">上一页</a>
+				</span>
+        </li>
+        <c:forEach begin="${page.pageBegin}" end="${page.pageEnd}" var="i">
+            <c:choose>
+                <c:when test="${page.page==i}">
+                    <li class="curr_page">
+                        <a href="javascript:void(0)" onclick="JavaScript:goPage('${i}');">${i}</a>
+                    </li>
+                </c:when>
+                <c:otherwise>
+                    <li>
+                        <a href="javascript:void(0)" onclick="JavaScript:goPage('${i}');">${i}</a>
+                    </li>
+                </c:otherwise>
+            </c:choose>
+        </c:forEach>
+        <li>
+				<span>
+					<a href="javascript:void(0)"  onclick="JavaScript:goPage('${page.nextPage}');">下一页</a>
+				</span>
+        </li>
+        <li>
+            <a href="javascript:void(0)" onclick="goPage($('#toPage').val());">GO</a>
+        </li>
+        <li>
+            <input style="width: 25px;" id="toPage" name="toPage" type="text"
+                   onkeyup="this.value=this.value.replace(/\D/g,'')"
+                   onafterpaste="this.value=this.value.replace(/\D/g,'')" />&nbsp;<span style="color: #1181c1">页</span>
+        </li>
+    </ul>
+</div>

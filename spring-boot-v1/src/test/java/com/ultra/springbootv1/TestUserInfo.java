@@ -1,5 +1,6 @@
 package com.ultra.springbootv1;
 
+import com.ultra.springbootv1.common.page.PageTool;
 import com.ultra.springbootv1.model.ResultMap;
 import com.ultra.springbootv1.model.UserInfo;
 import com.ultra.springbootv1.repository.UserInfoRepository;
@@ -112,11 +113,12 @@ public class TestUserInfo {
         }
     }
 
+    // 多表关联查询 动态sql拼接 分页
     @Test
     public void testDynamicSQL2() {
-        List<Object[]> list = userService.dynamicSQL2();
-        for (Object[] user : list) {
-            System.out.println(user[0] + "," + user[1] + "," + user[2]);
+        PageTool pageTool = userService.dynamicSQL2(1,2);
+        for (Object user : pageTool.getPageData()) {
+            System.out.println(user);
         }
     }
 }

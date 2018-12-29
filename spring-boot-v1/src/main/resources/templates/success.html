@@ -68,10 +68,11 @@
     </script>
 </head>
 <body>
-<span th:text="${username}"></span>登录成功,首页展示
-</br>
-<button onclick="submitRight()">ajax正确运行</button>
-<button onclick="submitRightObject()">ajax正确运行并返回一个对象</button>
-<button onclick="submitError()">ajax点击报错</button>
+    <span th:text="${username}"></span>登录成功,首页展示
+    </br>
+    <button onclick="submitRight()">ajax正确运行</button>
+    <button onclick="submitRightObject()">ajax正确运行并返回一个对象</button>
+    <button onclick="submitError()">ajax点击报错</button>
+    <a href="/user/getUsers" target="_blank">查看所有用户</a>
 </body>
 </html>
