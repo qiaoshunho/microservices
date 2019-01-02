@@ -42,12 +42,12 @@ public class UserController {
         return user;
     }
 
-    @GetMapping(value = "/getUsers")
+    @RequestMapping(value = "/getUsers")
     public ModelAndView getUsers(@RequestParam(name = "page", required = false) Integer page,
                                  @RequestParam(name = "pageSize", required = false) Integer pageSize) {
         PageTool pageTool = userService.dynamicSQL2(page, pageSize);
         ModelAndView mav = new ModelAndView("userInfo");
-        mav.addObject("users", pageTool);
+        mav.addObject("obj", pageTool);
         return mav;
     }
 

@@ -33,6 +33,16 @@ public class PageTool<T> implements Serializable {
     private Integer totalCount;
 
     /**
+     * 前一页
+     */
+    private Integer prevPage;
+
+    /**
+     * 后一页
+     */
+    private Integer nextPage;
+
+    /**
      * 页数开始
      */
     private int pageBegin;

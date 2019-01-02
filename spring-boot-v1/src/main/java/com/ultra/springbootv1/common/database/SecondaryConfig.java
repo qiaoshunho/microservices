@@ -49,7 +49,7 @@ public class SecondaryConfig {
         return builder
                 .dataSource(secondaryDataSource)
                 .properties(jpaProperties.getHibernateProperties(new HibernateSettings()))
-                .packages("com.ultra.springbootv1.model") //设置实体类所在位置
+                .packages("com.ultra.springbootv1.model.slave") //设置实体类所在位置
                 .persistenceUnit("secondaryPersistenceUnit")
                 .build();
     }
