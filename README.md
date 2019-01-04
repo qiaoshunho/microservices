@@ -12,3 +12,7 @@ Spring Boot 和 Spring Cloud系列
   (4)2018-12-24 新增拦截器并实现登录校验功能
   
   (5)2018-12-29 封装分页工具类,具体实现参考UserController-->getUsers方法
+
+  (6)2019-01-03 增加thymeleaf分页封装
+  
+  (7)2019-01-03 增加基于CXF实现的webservice功能
