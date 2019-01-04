@@ -1,0 +1,18 @@
+.nav{ height:40px;  width:550px; float:right; margin-top:8px; #margin-right:10px;}
+.page_nav{display:inline;float:right;margin-right:2px}
+.page_nav li{display:inline;float:left;height:25px;margin-right:3px;line-height:24px;color:#aaa}
+.page_nav input{vertical-align:middle}
+.page_nav a{display:block;min-width:15px;height:24px;padding:0 5px;line-height:28px;text-align:center;white-space:nowrap;color:#06c;text-decoration:none;_width:15px}
+.page_nav a:hover{color:#0078b6;border-color:#f3f3f3; background:#f6f4f4;}
+.page_nav .first-page a{padding:0 5px;text-align:center}
+.page_nav .curr_page a{font-weight:bold;background-color:#f6f4f4; border:1px dashed #bdbcbc; color:#98989a;}
+.page_nav .prev-page a,.page_nav .next-page a{position:relative;width:22px;}
+.page_nav {width:auto;padding:0 5px}
+.page_nav a:hover{text-decoration:none}
+.page_nav  {text-align:right}
+.page_nav .next-page {text-align:left}
+.page_nav {left:3px;border-right-color:#f3f3f3}
+.page_nav {right:3px;border-left-color:#f3f3f3}
+.page_nav{cursor:default;background-position:7px -35px}
+.page_nav{cursor:default;color:#7f7f7f;text-decoration:none;background-position:45px -55px;}
+.page_nav{ float:right; margin-right:25px; display:inline;color:#fff;}

@@ -1,38 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<div >
-    <ul  style="width:500px">
+<div th:fragment="page" class="nav">
+    <ul style="width:500px" class="page_nav">
         <li>
-				<span>
-					<a href="javascript:void(0)"  onclick="JavaScript:goPage('${page.previousPage}');">上一页</a>
-				</span>
+            <span>
+                <a th:onclick="'javascript:goPage('+${obj.prevPage}+')'">上一页</a>
+            </span>
         </li>
-        <c:forEach begin="${page.pageBegin}" end="${page.pageEnd}" var="i">
-            <c:choose>
-                <c:when test="${page.page==i}">
-                    <li class="curr_page">
-                        <a href="javascript:void(0)" onclick="JavaScript:goPage('${i}');">${i}</a>
-                    </li>
-                </c:when>
-                <c:otherwise>
-                    <li>
-                        <a href="javascript:void(0)" onclick="JavaScript:goPage('${i}');">${i}</a>
-                    </li>
-                </c:otherwise>
-            </c:choose>
-        </c:forEach>
-        <li>
-				<span>
-					<a href="javascript:void(0)"  onclick="JavaScript:goPage('${page.nextPage}');">下一页</a>
-				</span>
+        <li th:each="pageNum : ${#numbers.sequence(obj.pageBegin, obj.totalPages)}">
+            <a th:if="${obj.page eq pageNum}" th:onclick="'javascript:goPage('+${pageNum}+')'">
+                <span th:text="${pageNum}" style="color:red"></span>
+            </a>
+            <a th:if="${not (obj.page eq pageNum)}" th:onclick="'javascript:goPage('+${pageNum}+')'">
+                <span th:text="${pageNum}"></span>
+            </a>
         </li>
         <li>
-            <a href="javascript:void(0)" onclick="goPage($('#toPage').val());">GO</a>
+            <span>
+                <a th:onclick="'javascript:goPage('+${obj.nextPage}+')'">下一页</a>
+            </span>
+        </li>
+        <li>
+            <a href="javascript:void(0)" th:onclick="|javascript:goPage($('#toPage').val())|">GO</a>
         </li>
         <li>
             <input style="width: 25px;" id="toPage" name="toPage" type="text"
                    onkeyup="this.value=this.value.replace(/\D/g,'')"
-                   onafterpaste="this.value=this.value.replace(/\D/g,'')" />&nbsp;<span style="color: #1181c1">页</span>
+                   onafterpaste="this.value=this.value.replace(/\D/g,'')"/>&nbsp;
+            <span style="color: #1181c1">页</span>
         </li>
     </ul>
 </div>
