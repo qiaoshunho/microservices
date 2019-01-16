@@ -1,6 +1,8 @@
 package com.ultra.springbootv1.exception;
 
 import com.ultra.springbootv1.common.json.JSONResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,12 +18,14 @@ import javax.servlet.http.HttpServletResponse;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    private final static Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
     public static final String ERROR_HTML = "error";
 
     @ExceptionHandler(value = Exception.class)
     public Object errorHandler(HttpServletRequest request, HttpServletResponse response, Exception e) {
 
-        e.printStackTrace();
+        logger.error("------错误信息:", e);
 
         if (isAjax(request)) {//ajax请求方式的异常
 
