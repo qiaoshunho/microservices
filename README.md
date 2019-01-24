@@ -16,3 +16,5 @@ Spring Boot 和 Spring Cloud系列
   (6)2019-01-03 增加thymeleaf分页封装
   
   (7)2019-01-03 增加基于CXF实现的webservice功能
+  
+  (8)2019-01-17 增加log-back日志统一管理
