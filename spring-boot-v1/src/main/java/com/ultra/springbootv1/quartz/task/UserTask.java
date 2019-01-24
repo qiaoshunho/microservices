@@ -1,6 +1,6 @@
 package com.ultra.springbootv1.quartz.task;
 
-import com.ultra.springbootv1.model.UserInfo;
+import com.ultra.springbootv1.model.master.UserInfo;
 import com.ultra.springbootv1.service.UserService;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;

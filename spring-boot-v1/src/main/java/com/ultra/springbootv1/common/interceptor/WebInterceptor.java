@@ -2,7 +2,7 @@ package com.ultra.springbootv1.common.interceptor;
 
 import com.ultra.springbootv1.common.json.JSONResult;
 import com.ultra.springbootv1.common.util.JsonUtil;
-import com.ultra.springbootv1.model.UserInfo;
+import com.ultra.springbootv1.model.master.UserInfo;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;

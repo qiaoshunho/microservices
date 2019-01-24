@@ -1,7 +1,7 @@
 package com.ultra.springbootv1.controller;
 
 import com.ultra.springbootv1.common.json.JSONResult;
-import com.ultra.springbootv1.model.UserInfo;
+import com.ultra.springbootv1.model.master.UserInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

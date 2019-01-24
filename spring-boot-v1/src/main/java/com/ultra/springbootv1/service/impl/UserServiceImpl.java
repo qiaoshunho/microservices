@@ -1,9 +1,8 @@
 package com.ultra.springbootv1.service.impl;
 
 import com.ultra.springbootv1.common.page.PageTool;
-import com.ultra.springbootv1.model.ResultMap;
-import com.ultra.springbootv1.model.UserInfo;
-import com.ultra.springbootv1.repository.UserInfoRepository;
+import com.ultra.springbootv1.model.master.UserInfo;
+import com.ultra.springbootv1.repository.master.UserInfoRepository;
 import com.ultra.springbootv1.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

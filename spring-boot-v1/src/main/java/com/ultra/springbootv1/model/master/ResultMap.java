@@ -1,4 +1,4 @@
-package com.ultra.springbootv1.model;
+package com.ultra.springbootv1.model.master;
 
 /**
  * @desc:

@@ -1,7 +1,7 @@
 package com.ultra.springbootv1.controller;
 
 import com.ultra.springbootv1.common.page.PageTool;
-import com.ultra.springbootv1.model.UserInfo;
+import com.ultra.springbootv1.model.master.UserInfo;
 import com.ultra.springbootv1.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

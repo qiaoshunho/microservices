@@ -1,7 +1,6 @@
 package com.ultra.springbootv1.controller;
 
-import com.ultra.springbootv1.common.json.JSONResult;
-import com.ultra.springbootv1.model.UserInfo;
+import com.ultra.springbootv1.model.master.UserInfo;
 import com.ultra.springbootv1.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

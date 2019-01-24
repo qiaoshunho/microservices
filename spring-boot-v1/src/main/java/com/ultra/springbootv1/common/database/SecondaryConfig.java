@@ -1,4 +1,4 @@
-/*
+
 package com.ultra.springbootv1.common.database;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,19 +17,19 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 
-*/
+
 /**
  * @desc: 以MySQL辅助查询
  * @Author: ZhaoJP
  * @Date: 2018/12/14
- *//*
+ */
 
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
         entityManagerFactoryRef="entityManagerFactorySecondary",
         transactionManagerRef="transactionManagerSecondary",
-        basePackages= {"com.ultra.springbootv1.repository"}) //设置Repository所在位置
+        basePackages= {"com.ultra.springbootv1.repository.slave"}) //设置Repository所在位置
 public class SecondaryConfig {
 
     @Autowired
@@ -60,4 +60,4 @@ public class SecondaryConfig {
     }
 
 }
-*/
+

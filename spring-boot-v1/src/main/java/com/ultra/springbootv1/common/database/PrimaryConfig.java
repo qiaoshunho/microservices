@@ -27,7 +27,7 @@ import javax.sql.DataSource;
 @EnableJpaRepositories(
         entityManagerFactoryRef = "entityManagerFactoryPrimary",
         transactionManagerRef = "transactionManagerPrimary",
-        basePackages = {"com.ultra.springbootv1.repository"})//设置Repository所在位置
+        basePackages = {"com.ultra.springbootv1.repository.master"})//设置Repository所在位置
 public class PrimaryConfig {
 
     @Autowired
@@ -52,7 +52,7 @@ public class PrimaryConfig {
         return builder
                 .dataSource(primaryDataSource)
                 .properties(jpaProperties.getHibernateProperties(new HibernateSettings()))
-                .packages("com.ultra.springbootv1.model") //设置实体类所在位置
+                .packages("com.ultra.springbootv1.model.master") //设置实体类所在位置
                 .persistenceUnit("primaryPersistenceUnit")
                 .build();
     }
