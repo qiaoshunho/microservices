@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ultra.web.dao.AdminDao">
+    <resultMap id="BaseResultMap" type="com.ultra.model.Admins">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="avatr" jdbcType="VARCHAR" property="avatr" />
+        <result column="create_ip" jdbcType="VARCHAR" property="createIp" />
+        <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+        <result column="last_login_ip" jdbcType="VARCHAR" property="lastLoginIp" />
+        <result column="login_count" jdbcType="INTEGER" property="loginCount" />
+        <result column="NAME" jdbcType="VARCHAR" property="name" />
+        <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+        <result column="STATUS" jdbcType="TINYINT" property="status" />
+        <result column="updated_at" jdbcType="DATE" property="updatedAt" />
+        <result column="updatestr" jdbcType="VARCHAR" property="updatedAtStr" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, avatr, create_ip, created_at, last_login_ip, login_count, NAME, PASSWORD, STATUS,
+        updated_at, DATE_FORMAT(updated_at,'%Y-%m-%d %H:%i:%s') updatestr
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from boot_admins
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectAdmins" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM  boot_admins
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from boot_admins
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.ultra.model.Admins">
+        insert into boot_admins (id, avatr, create_ip,
+        created_at, last_login_ip, login_count,
+        NAME, PASSWORD, STATUS,
+        updated_at)
+        values (#{id,jdbcType=INTEGER}, #{avatr,jdbcType=VARCHAR}, #{createIp,jdbcType=VARCHAR},
+        #{createdAt,jdbcType=TIMESTAMP}, #{lastLoginIp,jdbcType=VARCHAR}, #{loginCount,jdbcType=INTEGER},
+        #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT},
+        #{updatedAt,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" parameterType="com.ultra.model.Admins">
+        insert into boot_admins
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="avatr != null">
+                avatr,
+            </if>
+            <if test="createIp != null">
+                create_ip,
+            </if>
+            <if test="createdAt != null">
+                created_at,
+            </if>
+            <if test="lastLoginIp != null">
+                last_login_ip,
+            </if>
+            <if test="loginCount != null">
+                login_count,
+            </if>
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="password != null">
+                PASSWORD,
+            </if>
+            <if test="status != null">
+                STATUS,
+            </if>
+            <if test="updatedAt != null">
+                updated_at,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="avatr != null">
+                #{avatr,jdbcType=VARCHAR},
+            </if>
+            <if test="createIp != null">
+                #{createIp,jdbcType=VARCHAR},
+            </if>
+            <if test="createdAt != null">
+                #{createdAt,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastLoginIp != null">
+                #{lastLoginIp,jdbcType=VARCHAR},
+            </if>
+            <if test="loginCount != null">
+                #{loginCount,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=TINYINT},
+            </if>
+            <if test="updatedAt != null">
+                #{updatedAt,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.ultra.model.Admins">
+        update boot_admins
+        <set>
+            <if test="avatr != null">
+                avatr = #{avatr,jdbcType=VARCHAR},
+            </if>
+            <if test="createIp != null">
+                create_ip = #{createIp,jdbcType=VARCHAR},
+            </if>
+            <if test="createdAt != null">
+                created_at = #{createdAt,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastLoginIp != null">
+                last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+            </if>
+            <if test="loginCount != null">
+                login_count = #{loginCount,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                NAME = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                PASSWORD = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                STATUS = #{status,jdbcType=TINYINT},
+            </if>
+            <if test="updatedAt != null">
+                updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.ultra.model.Admins">
+        update boot_admins
+        set avatr = #{avatr,jdbcType=VARCHAR},
+        create_ip = #{createIp,jdbcType=VARCHAR},
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+        last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+        login_count = #{loginCount,jdbcType=INTEGER},
+        NAME = #{name,jdbcType=VARCHAR},
+        PASSWORD = #{password,jdbcType=VARCHAR},
+        STATUS = #{status,jdbcType=TINYINT},
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>
+
+

@@ -1,0 +1,6 @@
+com\ultra\generator\AccountMapper.class
+com\ultra\generator\Company.class
+com\ultra\generator\User.class
+com\ultra\generator\UserMapper.class
+com\ultra\generator\CompanyMapper.class
+com\ultra\generator\Account.class
